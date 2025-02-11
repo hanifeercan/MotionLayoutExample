@@ -6,7 +6,7 @@ import com.hercan.motionlayoutexample.core.data.repo.Repository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetCharactersUseCase @Inject constructor(private val repository: Repository) {
+class GetCartoonsUseCase @Inject constructor(private val repository: Repository) {
     suspend operator fun invoke(): Flow<ResponseState<List<Cartoon>>> {
         return repository.getCharacters()
     }

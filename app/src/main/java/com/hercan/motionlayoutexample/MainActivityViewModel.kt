@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hercan.motionlayoutexample.core.common.ResponseState
-import com.hercan.motionlayoutexample.core.domain.GetCharactersUseCase
+import com.hercan.motionlayoutexample.core.domain.GetCartoonsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    private val getCharactersUseCase: GetCharactersUseCase
+    private val getCartoonsUseCase: GetCartoonsUseCase
 ) : ViewModel() {
 
     private val _characterScreenUiState = MutableLiveData(CartoonListScreenUiState.initial())
@@ -20,7 +20,7 @@ class MainActivityViewModel @Inject constructor(
 
     fun getAllBooks() {
         viewModelScope.launch {
-            getCharactersUseCase().collect { responseState ->
+            getCartoonsUseCase().collect { responseState ->
                 when (responseState) {
                     is ResponseState.Error -> {
                         _characterScreenUiState.postValue(
