@@ -2,7 +2,7 @@ package com.hercan.motionlayoutexample.core.network.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CharacterResponse(
+data class CartoonResponse(
     @SerializedName("creator") val creator: List<String?>?,
     @SerializedName("episodes") val episodes: Int?,
     @SerializedName("genre") val genre: List<String?>?,
