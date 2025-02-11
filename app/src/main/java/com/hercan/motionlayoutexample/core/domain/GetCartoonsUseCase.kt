@@ -8,6 +8,6 @@ import javax.inject.Inject
 
 class GetCartoonsUseCase @Inject constructor(private val repository: Repository) {
     suspend operator fun invoke(): Flow<ResponseState<List<Cartoon>>> {
-        return repository.getCharacters()
+        return repository.getCartoons()
     }
 }

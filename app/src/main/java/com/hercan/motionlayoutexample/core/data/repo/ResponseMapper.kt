@@ -6,16 +6,16 @@ import retrofit2.Response
 
 typealias RestResponse = Response<List<CartoonResponse>>
 
-fun RestResponse.toCharacterModelList(): List<Cartoon> {
-    return body()!!.map { character ->
+fun RestResponse.toCartoonList(): List<Cartoon> {
+    return body()!!.map { cartoon ->
         Cartoon(
-            creator = character.creator,
-            episodes = character.episodes,
-            id = character.id,
-            image = character.image,
-            runtimeInMinutes = character.runtimeInMinutes,
-            title = character.title,
-            year = character.year
+            creator = cartoon.creator,
+            episodes = cartoon.episodes,
+            id = cartoon.id,
+            image = cartoon.image,
+            runtimeInMinutes = cartoon.runtimeInMinutes,
+            title = cartoon.title,
+            year = cartoon.year
         )
     }
 }

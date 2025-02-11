@@ -15,15 +15,15 @@ class MainActivityViewModel @Inject constructor(
     private val getCartoonsUseCase: GetCartoonsUseCase
 ) : ViewModel() {
 
-    private val _characterScreenUiState = MutableLiveData(CartoonListScreenUiState.initial())
-    val characterScreenUiState: LiveData<CartoonListScreenUiState> get() = _characterScreenUiState
+    private val _cartoonsScreenUiState = MutableLiveData(CartoonListScreenUiState.initial())
+    val cartoonsScreenUiState: LiveData<CartoonListScreenUiState> get() = _cartoonsScreenUiState
 
     fun getAllBooks() {
         viewModelScope.launch {
             getCartoonsUseCase().collect { responseState ->
                 when (responseState) {
                     is ResponseState.Error -> {
-                        _characterScreenUiState.postValue(
+                        _cartoonsScreenUiState.postValue(
                             CartoonListScreenUiState(
                                 isError = true, errorMessage = responseState.message
                             )
@@ -31,11 +31,11 @@ class MainActivityViewModel @Inject constructor(
                     }
 
                     is ResponseState.Loading -> {
-                        _characterScreenUiState.postValue(CartoonListScreenUiState(isLoading = true))
+                        _cartoonsScreenUiState.postValue(CartoonListScreenUiState(isLoading = true))
                     }
 
                     is ResponseState.Success -> {
-                        _characterScreenUiState.postValue(CartoonListScreenUiState(responseState.data))
+                        _cartoonsScreenUiState.postValue(CartoonListScreenUiState(responseState.data))
                     }
                 }
             }

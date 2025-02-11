@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface RestApi {
     @GET(".")
-    suspend fun getCharacters(): Response<List<CartoonResponse>>
+    suspend fun getCartoons(): Response<List<CartoonResponse>>
 }

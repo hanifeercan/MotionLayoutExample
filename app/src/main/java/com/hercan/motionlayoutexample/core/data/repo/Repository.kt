@@ -5,5 +5,5 @@ import com.hercan.motionlayoutexample.core.data.model.Cartoon
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-    suspend fun getCharacters(): Flow<ResponseState<List<Cartoon>>>
+    suspend fun getCartoons(): Flow<ResponseState<List<Cartoon>>>
 }

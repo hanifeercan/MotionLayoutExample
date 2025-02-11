@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(private val restDataSource: RestDataSource) : Repository {
-    override suspend fun getCharacters(): Flow<ResponseState<List<Cartoon>>> {
+    override suspend fun getCartoons(): Flow<ResponseState<List<Cartoon>>> {
         return flow {
             emit(ResponseState.Loading)
-            val response = restDataSource.getCharacters()
-            emit(ResponseState.Success(response.mapTo { it.toCharacterModelList() }))
+            val response = restDataSource.getCartoons()
+            emit(ResponseState.Success(response.mapTo { it.toCartoonList() }))
         }.catch {
             emit(ResponseState.Error(it.message.orEmpty()))
         }

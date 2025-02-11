@@ -3,7 +3,7 @@ package com.hercan.motionlayoutexample
 import com.hercan.motionlayoutexample.core.data.model.Cartoon
 
 data class CartoonListScreenUiState(
-    val characters: List<Cartoon> = emptyList(),
+    val cartoons: List<Cartoon> = emptyList(),
     val isLoading: Boolean = false,
     val isError: Boolean = false,
     val errorMessage: String? = ""
