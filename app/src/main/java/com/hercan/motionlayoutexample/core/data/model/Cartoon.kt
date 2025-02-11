@@ -1,6 +1,6 @@
 package com.hercan.motionlayoutexample.core.data.model
 
-data class CharacterModel(
+data class Cartoon(
     val creator: List<String?>?,
     val episodes: Int?,
     val id: Int?,
